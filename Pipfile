@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-ansible = "==9.2.0"
+ansible = "==9.12.0"
 molecule = "24.2.0"
 antsibull-docs = "==2.9.0"
 coverage = "==7.3.2"
