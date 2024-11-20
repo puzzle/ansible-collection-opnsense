@@ -12,7 +12,7 @@ molecule-plugins = {extras = ["vagrant"], version = "==23.5.3"}
 pytest = "==8.1.1"
 pytest-forked = "==1.6.0"
 pytest-xdist = "==3.5.0"
-pyyaml = "==6.0.1"
+pyyaml = "==6.0.2"
 pylint = "==3.1.0"
 black = "==24.4.0"
 antsibull-changelog = "==0.26.0"
