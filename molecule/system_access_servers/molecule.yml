@@ -1,0 +1,69 @@
+---
+scenario:
+    name: system_access_servers
+    test_sequence:
+        # - dependency not relevant unless we have requirements
+        - destroy
+        - syntax
+        - create
+#        - prepare
+        - converge
+        - idempotence
+        #- verify
+        - cleanup
+        - destroy
+
+driver:
+    name: vagrant
+    parallel: true
+
+platforms:
+    - name: "22.7"
+      hostname: false
+      box: puzzle/opnsense
+      box_version: "22.7"
+      memory: 1024
+      cpus: 2
+      instance_raw_config_args:
+          - 'vm.guest = :freebsd'
+          - 'ssh.sudo_command = "%c"'
+          - 'ssh.shell = "/bin/sh"'
+    - name: "23.1"
+      box: puzzle/opnsense
+      hostname: false
+      box_version: "23.1"
+      memory: 1024
+      cpus: 2
+      instance_raw_config_args:
+          - 'vm.guest = :freebsd'
+          - 'ssh.sudo_command = "%c"'
+          - 'ssh.shell = "/bin/sh"'
+    - name: "23.7"
+      box: puzzle/opnsense
+      hostname: false
+      box_version: "23.7"
+      memory: 1024
+      cpus: 2
+      instance_raw_config_args:
+        - 'vm.guest = :freebsd'
+        - 'ssh.sudo_command = "%c"'
+        - 'ssh.shell = "/bin/sh"'
+    - name: "24.1"
+      box: puzzle/opnsense
+      hostname: false
+      box_version: "24.1"
+      memory: 1024
+      cpus: 2
+      instance_raw_config_args:
+        - 'vm.guest = :freebsd'
+        - 'ssh.sudo_command = "%c"'
+        - 'ssh.shell = "/bin/sh"'
+
+provisioner:
+    name: ansible
+#    env:
+#        ANSIBLE_VERBOSITY: 3
+verifier:
+    name: ansible
+    options:
+        become: true
